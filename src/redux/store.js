@@ -18,7 +18,7 @@ import { filterSlice } from './contactsTask/filterSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'currentPath'],
+  whitelist: ['token'],
 };
 
 export const store = configureStore({

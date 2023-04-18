@@ -38,7 +38,8 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return alert('Bad request. Try another email or password');
+      // return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

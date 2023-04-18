@@ -35,8 +35,6 @@ export const LogInForm = () => {
     event.preventDefault();
     const { email, password } = event.currentTarget.elements;
 
-    console.log(email.value, password.value);
-
     dispatch(
       logIn({
         email: email.value,

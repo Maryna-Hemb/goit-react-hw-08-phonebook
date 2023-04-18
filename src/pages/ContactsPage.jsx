@@ -4,8 +4,18 @@ import Container from '@mui/material/Container';
 import { ContactForm } from '../components/contactPageComp/contactForm/ContactForm';
 import { Filter } from '../components/contactPageComp/filter/Filter';
 import { ContactList } from '../components/contactPageComp/contactList/ContactList';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getIsLoading, getError } from '../redux/selectors';
+import { fetchContacts } from '../redux/contactsTask/operations';
 
 const ContactsPage = () => {
+  const dispatch = useDispatch();
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
   return (
     <React.Fragment>
       <CssBaseline />
@@ -28,6 +38,7 @@ const ContactsPage = () => {
         </h2>
         <Filter />
         <ContactList />
+        <div>{isLoading && !error && <b>Request in progress...</b>}</div>
       </Container>
     </React.Fragment>
   );

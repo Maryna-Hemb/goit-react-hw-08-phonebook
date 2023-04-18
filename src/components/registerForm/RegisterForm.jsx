@@ -60,8 +60,6 @@ export const RegisterForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
     const { name, email, password } = event.currentTarget.elements;
-    console.log(name.value, email.value, password.value);
-
     dispatch(
       register({
         name: name.value,
